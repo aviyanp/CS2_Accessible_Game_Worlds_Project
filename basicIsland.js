@@ -20,7 +20,11 @@ class basicIsland {
     noStroke();
     this.hover = 0;
    
-    if (this.type === 1) {
+    if (this.type === 4) {
+      //farm
+      fill(0, 255, 0);
+      rect(this.x, this.y, 20, 20);
+    } else if (this.type === 1) {
       fill(121, 191, 99);
 
       rect(this.x, this.y - 5, 20, 5);
@@ -65,12 +69,9 @@ class basicIsland {
       triangle(this.x, this.y, this.x - 5, this.y - 5, this.x - 5, this.y);
       triangle(this.x, this.y + 20, this.x - 5, this.y + 20, this.x - 5, this.y + 25);
     } else if (this.type === 3) {
-      fill(255, 0, 0);
-      rect(this.x, this.y, 20, 20);
-    }
-    else if (this.type === 4) {
-      fill(0, 255, 0);
-      rect(this.x, this.y, 20, 20);
+      //house
+      //console.log("house: " + this.x + ", " + this.y)
+      image(house, this.x, this.y, 85, 115)
     }
   }
 
@@ -78,14 +79,4 @@ class basicIsland {
   update(){
     this.show();
   }
-}
-
-function mouseClicked(){
-    for (i = 0; i < cells.length; i++){
-    if (mouseX > cells[i].x && mouseX < cells[i].x + 30 && mouseY > cells[i].y && mouseY < cells[i].y + 30 && gold >= islandprice){
-      cells[i] = new basicIsland(cells[i].x, cells[i].y, 1, 1, 1, 1)
-      gold -= islandprice;
-    }
-}
- 
 }
