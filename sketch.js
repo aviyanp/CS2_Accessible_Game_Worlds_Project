@@ -64,6 +64,28 @@ function loadLevelMap(levelData) {
     }
   }
 }
+
+function timeChange(change){
+  if (millis === 300&&change === 1){
+    millis = 600;
+  }
+  else if (millis === 300 && change === -1){
+    millis === 100;
+  }
+  else if (millis === 600 && change === -1){
+    millis === 300;
+  }
+  else if (millis === 100 && change === 1){
+    millis === 300;
+  }
+  else if (millis === 600 && change === 1){
+    millis === 1000;
+  }
+  else if (millis === 1000 && change === -1){
+    millis === 600;
+  }
+}
+
 function draw() {
   background(105);
   
@@ -81,6 +103,24 @@ function draw() {
   if (houseX !== undefined && houseY !== undefined) {
     image(house, houseY-9, houseX-34, 98, 153);
   }
+  stroke(2);
+  stroke(0,0,0)
+  fill (234, 213, 169);
+  for (let i = 0.5; i<=11; i++){
+  rect(i*100,1200,75,75, 10);}
+  fill (0,0,0);
+  stroke(1);
+  text(amountwheat, 75, 1190);
+  text(amountpotato, 175, 1190);
+  text(amountcarrot, 275, 1190);
+  text(amountbeetroot, 375, 1190);
+  text(amountpumpkin, 475, 1190);
+  text(amountland, 575, 1190);
+  text(amountmelon, 675, 1190);
+  text(amountmelon, 775, 1190);
+  text(amountmelon, 875, 1190);
+  text(amountmelon, 975, 1190);
+  text(amountmelon, 1075, 1190);
 }
 
 function incrementDay() {
