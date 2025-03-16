@@ -1,6 +1,7 @@
 let cells = [];
 let cellNum = 0;
 let gold = 200;
+let reputation = 0;
 let islandprice = 20;
 let numLevels = 1;
 let levelMaps = [];
@@ -10,9 +11,18 @@ let houseX;
 let houseY;
 let farmlandX;
 let farmlandY;
-let day;
+let day = 0;
 let traderArrivalDay = 1;
 let traderLevel = (traderArrivalDay/12)+1;
+let action = 5;
+let amountwheat = 10;
+let amountpotato = 0;
+let amountcarrot = 0;
+let amountbeetroot = 0;
+let amountpumpkin = 0;
+let amountmelon = 0;
+let amountland = 5;
+let traderarrived = 0;
 //Crops are wheat, potato, carrot, beetroot, pumpkin, melon (honeydew)
 
 function preload() {
