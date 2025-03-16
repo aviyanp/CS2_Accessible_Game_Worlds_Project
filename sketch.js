@@ -91,7 +91,6 @@ function draw() {
   
   controlPanel();
   incrementDay();
-  traderArrival();
   
   for (let cell of cells){
     cell.update();
@@ -99,6 +98,8 @@ function draw() {
       cell.hover = 1;
     }
   }
+  
+  traderArrival();
   
   if (houseX !== undefined && houseY !== undefined) {
     image(house, houseY-9, houseX-34, 98, 153);
@@ -129,11 +130,34 @@ function incrementDay() {
 
 function traderArrival() {
   if (day === traderArrivalDay) {
-    // implement arrival gui
+    console.log('Trader Arrived!')
+    stroke(120, 104, 47);
+    strokeWeight(4)
+    fill(234, 213, 169); 
+    rect(1000, 100, 200, 75); 
+    
+    fill(0); // Text color
+    stroke(120, 104, 47);
+    strokeWeight(1)
+    textSize(32); // Text size
+    text("Trader Is Here!", 1010, 145); 
     let trader = new basicTrader(traderLevel);
     trader.update();
     
     traderArrivalDay += 12;
+  }
+  else if (day+1 === traderArrivalDay) {
+    stroke(120, 104, 47);
+    strokeWeight(4)
+    fill(234, 213, 169); 
+    rect(1000, 100, 200, 75); 
+    
+    fill(0); // Text color
+    stroke(120, 104, 47);
+    strokeWeight(1)
+    textSize(32); // Text size
+    text("Trader Incoming!", 1010, 145); 
+    
   }
 }
 
