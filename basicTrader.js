@@ -1,6 +1,8 @@
 class basicTrader {
   constructor(lvl) {
     this.level = lvl;
+    this.arrivalday = 3; 
+    
   }
 
 update() {
