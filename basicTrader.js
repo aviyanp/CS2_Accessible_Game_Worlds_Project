@@ -1,6 +1,6 @@
 class basicTrader {
-  constructor(lvl) {
-    this.level = lvl;
+  constructor() {
+    this.level = 1;
     this.arrivalday = 3; 
     
   }
