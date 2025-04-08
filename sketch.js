@@ -24,6 +24,7 @@ let amountmelon = 0;
 let amountland = 5;
 let traderarrived = 0;
 let Trader = new basicTrader();
+let traderleft = 0;
 //Crops are wheat, potato, carrot, beetroot, pumpkin, melon (honeydew)
 
 function preload() {
@@ -140,7 +141,8 @@ function incrementDay() {
 }
 
 function traderArrival() {
-  if (day === traderArrivalDay) {
+  if (day == traderArrivalDay) {
+    traderleft = 0;
     console.log('Trader Arrived!')
     stroke(120, 104, 47);
     strokeWeight(4)
@@ -152,10 +154,39 @@ function traderArrival() {
     strokeWeight(1)
     textSize(32); // Text size
     text("Trader Is Here!", 1010, 145); 
-    let trader = new basicTrader(traderLevel);
-    trader.update();
+    Trader.update();
     
-    traderArrivalDay += 12;
+  }
+  else if (day-1 == traderArrivalDay) {
+    stroke(120, 104, 47);
+    strokeWeight(4)
+    fill(234, 213, 169); 
+    rect(1000, 100, 200, 75); 
+    
+    fill(0); // Text color
+    stroke(120, 104, 47);
+    strokeWeight(1)
+    textSize(32); // Text size
+    text("Trader Will Leave In One Day!", 1010, 145); 
+    Trader.update();
+    
+  }
+   else if (day-2 == traderArrivalDay) {
+    stroke(120, 104, 47);
+    strokeWeight(4)
+    fill(234, 213, 169); 
+    rect(1000, 100, 200, 75); 
+    
+    fill(0); // Text color
+    stroke(120, 104, 47);
+    strokeWeight(1)
+    textSize(32); // Text size
+    text("Trader Has Left and Will Return in 12 Days!", 1010, 145);
+     if (traderleft === 0){
+       traderleft = 1;
+       traderArrivalDay+=12;}
+     
+    
   }
   else if (day+1 === traderArrivalDay) {
     stroke(120, 104, 47);
