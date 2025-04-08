@@ -23,6 +23,7 @@ let amountpumpkin = 0;
 let amountmelon = 0;
 let amountland = 5;
 let traderarrived = 0;
+let Trader = new basicTrader();
 //Crops are wheat, potato, carrot, beetroot, pumpkin, melon (honeydew)
 
 function preload() {
