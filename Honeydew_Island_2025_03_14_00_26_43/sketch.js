@@ -116,6 +116,69 @@ function setup() {
   georgeType = frontGeorge[0];
 }
 
+function traderArrival() {
+  if (day == traderArrivalDay) {
+    traderleft = 0;
+    console.log('Trader Arrived!')
+    stroke(120, 104, 47);
+    strokeWeight(4);
+    fill(234, 213, 169); 
+    rect(1000, 100, 200, 75); 
+    
+    fill(0);
+    stroke(120, 104, 47);
+    strokeWeight(1);
+    textSize(32); 
+    text("Trader Is Here!", 1010, 145); 
+    Trader.update();
+    
+  }
+  else if (day-1 == traderArrivalDay) {
+    stroke(120, 104, 47);
+    strokeWeight(4);
+    fill(234, 213, 169); 
+    rect(1000, 100, 200, 75); 
+    
+    fill(0); 
+    stroke(120, 104, 47);
+    strokeWeight(1);
+    textSize(32); 
+    text("Trader Will Leave In One Day!", 1010, 145); 
+    Trader.update();
+    
+  }
+   else if (day-2 == traderArrivalDay) {
+    stroke(120, 104, 47);
+    strokeWeight(4);
+    fill(234, 213, 169); 
+    rect(1000, 100, 200, 75); 
+    
+    fill(0); 
+    stroke(120, 104, 47);
+    strokeWeight(1);
+    textSize(32);
+    text("Trader Has Left and Will Return in 12 Days!", 1010, 145);
+     if (traderleft === 0){
+       traderleft = 1;
+       traderArrivalDay+=12;}
+     
+    
+  }
+  else if (day+1 === traderArrivalDay) {
+    stroke(120, 104, 47);
+    strokeWeight(4);
+    fill(234, 213, 169); 
+    rect(1000, 100, 200, 75); 
+    
+    fill(0); 
+    stroke(120, 104, 47);
+    strokeWeight(1);
+    textSize(32);
+    text("Trader Incoming!", 1010, 145); 
+    
+  }
+}
+
 function loadLevelMap(levelData) {
   for (let j = 0; j < levelData.length; j++) {
     for (let i = 0; i < 40; i++) {
@@ -154,6 +217,7 @@ function draw() {
   
   georgeShow();
   georgeMove();
+  traderArrival();
 
   drawHotbar();
 
